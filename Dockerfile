@@ -9,7 +9,6 @@ RUN  apk --no-cache add git \
 #------------------------------------------
 FROM alpine:3.6
 
-WORKDIR /
 COPY --from=dependencies /go/bin/docker-credential-ecr-login .
 
 ENTRYPOINT ["./docker-credential-ecr-login"]
