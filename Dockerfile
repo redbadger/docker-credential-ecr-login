@@ -7,9 +7,9 @@ RUN  apk --no-cache add git \
   && go get -u github.com/awslabs/amazon-ecr-credential-helper/ecr-login/cli/docker-credential-ecr-login
 
 #------------------------------------------
-FROM scratch
+FROM alpine:3.6
 
 WORKDIR /
 COPY --from=dependencies /go/bin/docker-credential-ecr-login .
 
-ENTRYPOINT ["docker-credential-ecr-login"]
+ENTRYPOINT ["./docker-credential-ecr-login"]
